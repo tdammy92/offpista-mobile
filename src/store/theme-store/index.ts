@@ -1,4 +1,4 @@
-import {PayloadAction, createSlice} from '@reduxjs/toolkit';
+import { PayloadAction, createSlice } from '@reduxjs/toolkit';
 
 // Define the type for the theme state
 type ThemeState = {
@@ -7,7 +7,7 @@ type ThemeState = {
 
 // Initial state
 const initialState: ThemeState = {
-  theme: 'light', // Default theme is light
+  theme: 'dark', // Default theme is light
 };
 
 export const themelice = createSlice({
@@ -26,7 +26,7 @@ export const themelice = createSlice({
 });
 
 // Action creators are generated for each case reducer function
-export const {toggleTheme, setTheme} = themelice.actions;
+export const { toggleTheme, setTheme } = themelice.actions;
 
 // export reducer function
 export default themelice.reducer;

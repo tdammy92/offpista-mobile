@@ -12,7 +12,6 @@ const AppContainer = () => {
 
   const onReady = useCallback(() => {
     // console.log('nav is ready');
-    // navigationRef.navigate('WaitlistLogin');
   }, []);
 
   const onStateChange = useCallback(async () => {}, []);
