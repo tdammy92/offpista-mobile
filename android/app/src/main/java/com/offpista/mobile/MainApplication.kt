@@ -1,4 +1,4 @@
-package com.offpista
+package com.offpista.mobile
 
 import android.app.Application
 import com.facebook.react.PackageList
