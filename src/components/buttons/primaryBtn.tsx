@@ -11,6 +11,7 @@ import {
 } from 'react-native';
 import React, { FC, ReactElement } from 'react';
 import { hp, spacing } from '@src/themes/dimensions';
+import useColors from '@src/hooks/useColors';
 
 type PrimaryBtnProps = TouchableOpacityProps & {
   btnTitle: string;
@@ -28,12 +29,17 @@ const PrimaryBtn: FC<PrimaryBtnProps> = ({
   btnTextStyle,
   ...rest
 }) => {
+  const colors = useColors();
   return (
     <TouchableOpacity
       accessible={true}
       accessibilityLabel={btnTitle}
       accessibilityHint={`btn for ${btnTitle}`}
-      style={[styles.primaryButton, btnContainerStyle]}
+      style={[
+        styles.primaryButton,
+        { backgroundColor: colors.primary100 },
+        btnContainerStyle,
+      ]}
       {...rest}
     >
       {isBtnLoading ? (
@@ -61,7 +67,6 @@ export default PrimaryBtn;
 
 const styles = StyleSheet.create({
   primaryButton: {
-    backgroundColor: '#E50914',
     paddingVertical: 16,
     borderRadius: hp(20),
     alignItems: 'center',

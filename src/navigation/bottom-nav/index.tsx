@@ -49,7 +49,7 @@ const MainTab = () => {
                   size={size}
                   name="Home"
                 >
-                  <House />
+                  <House color={focused ? colors.primary100 : colors.light} />
                 </TabItemContainer>
               );
             },
@@ -69,7 +69,9 @@ const MainTab = () => {
                   size={size}
                   name="Shorts"
                 >
-                  <GalleryHorizontalEnd />
+                  <GalleryHorizontalEnd
+                    color={focused ? colors.primary100 : colors.light}
+                  />
                 </TabItemContainer>
               );
             },
@@ -88,7 +90,7 @@ const MainTab = () => {
                   size={size}
                   name="Reward"
                 >
-                  <Gift />
+                  <Gift color={focused ? colors.primary100 : colors.light} />
                 </TabItemContainer>
               );
             },
@@ -107,7 +109,7 @@ const MainTab = () => {
                   size={size}
                   name="Profile"
                 >
-                  <User />
+                  <User color={focused ? colors.primary100 : colors.light} />
                 </TabItemContainer>
               );
             },

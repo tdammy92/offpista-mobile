@@ -7,14 +7,23 @@ import {
   TextInput,
   View,
 } from 'react-native';
-import React, { useState } from 'react';
+import React, { useCallback, useState } from 'react';
 import styles from './styles';
 import AuthInput from '@src/components/forms/AuthInput';
 import useColors from '@src/hooks/useColors';
 import PrimaryBtn from '@src/components/buttons/primaryBtn';
+import { useNavigation } from '@react-navigation/native';
+import { NativeStackNavigationProp } from '@react-navigation/native-stack';
+import { rootStackParams } from '@src/types/nav-type';
+import { SCREEN_NAME } from '@src/navigation/nav-constant';
+import { useAppDispatch } from '@src/store';
+import { loginUser } from '@src/store/auth-store';
 
 const LoginScreen = () => {
   const colors = useColors();
+  const dispatch = useAppDispatch();
+  const { navigate } =
+    useNavigation<NativeStackNavigationProp<rootStackParams>>();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [loading, setLoading] = useState(false);
@@ -22,7 +31,12 @@ const LoginScreen = () => {
 
   const handleLogin = () => {
     // Handle login logic here
+    dispatch(loginUser());
   };
+
+  const gotoSignUp = useCallback(() => {
+    navigate(SCREEN_NAME.signup);
+  }, []);
 
   return (
     <KeyboardAvoidingView
@@ -65,7 +79,7 @@ const LoginScreen = () => {
 
           <View style={styles.footer}>
             <Text style={styles.footerText}>Don't have an account? </Text>
-            <Pressable>
+            <Pressable onPress={gotoSignUp}>
               <Text style={styles.footerLink}>Sign Up</Text>
             </Pressable>
           </View>

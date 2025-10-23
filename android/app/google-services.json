@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "850024209657",
+    "project_id": "offpista-eb068",
+    "storage_bucket": "offpista-eb068.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:850024209657:android:4d9b699a6bb11d0294d628",
+        "android_client_info": {
+          "package_name": "com.offpista.mobile"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAwUmF82QrcmXl-qcchJtrAUi6TKa9FsC8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,5 +1,5 @@
 import React, { ReactNode, useEffect } from 'react';
-import { Text } from 'react-native';
+import { Text, View } from 'react-native';
 import Animated, {
   interpolateColor,
   useAnimatedStyle,
@@ -7,7 +7,6 @@ import Animated, {
   withSpring,
 } from 'react-native-reanimated';
 import useColors from '../../hooks/useColors';
-import { useAppSelector } from '../../store';
 import { fontSize, hp, wp } from '@src/themes/dimensions';
 
 type TabItemContainerProps = { children: ReactNode } & {
@@ -53,14 +52,14 @@ const TabItemContainer = ({
   }));
 
   return (
-    <Animated.View
+    <View
       style={[
         {
           alignItems: 'center',
           justifyContent: 'center',
           width: wp(66),
         },
-        animatedContainerStyle,
+        // animatedContainerStyle,
       ]}
     >
       {children}
@@ -69,14 +68,14 @@ const TabItemContainer = ({
           {
             fontSize: fontSize.sm,
             paddingTop: hp(2),
-            color: focused ? colors.primary : colors.textSecondary,
+            color: focused ? colors.primary100 : colors.light,
           },
-          animatedTextStyle,
+          // animatedTextStyle,
         ]}
       >
         {name}
       </Text>
-    </Animated.View>
+    </View>
   );
 };
 
