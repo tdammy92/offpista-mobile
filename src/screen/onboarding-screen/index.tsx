@@ -8,6 +8,8 @@ import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { rootStackParams } from '@src/types/nav-type';
 import { SCREEN_NAME } from '@src/navigation/nav-constant';
 import useColors from '@src/hooks/useColors';
+import PrimaryBtn from '@src/components/buttons/primaryBtn';
+import SecondaryBtn from '@src/components/buttons/secondaryBtn';
 
 const OnBordingScreen = () => {
   const colors = useColors();
@@ -46,21 +48,11 @@ const OnBordingScreen = () => {
             </View>
 
             <View style={styles.bottomSection}>
-              <Pressable style={styles.primaryButton} onPress={gotoSignUp}>
-                <Text
-                  style={[styles.primaryButtonText, { color: colors.light }]}
-                >
-                  Get Started
-                </Text>
-              </Pressable>
-
-              <Pressable style={styles.secondaryButton} onPress={gotoLogin}>
-                <Text
-                  style={[styles.secondaryButtonText, { color: colors.light }]}
-                >
-                  I Already Have an Account
-                </Text>
-              </Pressable>
+              <PrimaryBtn btnTitle="Get Started" onPress={gotoSignUp} />
+              <SecondaryBtn
+                btnTitle="I Already Have an Account"
+                onPress={gotoLogin}
+              />
             </View>
           </View>
         </LinearGradient>

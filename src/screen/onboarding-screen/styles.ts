@@ -9,10 +9,6 @@ interface Styles {
   title: TextStyle;
   subtitle: TextStyle;
   bottomSection: ViewStyle;
-  primaryButton: ViewStyle;
-  primaryButtonText: TextStyle;
-  secondaryButton: ViewStyle;
-  secondaryButtonText: TextStyle;
 }
 const styles = StyleSheet.create<Styles>({
   backgroundImage: {
@@ -48,28 +44,6 @@ const styles = StyleSheet.create<Styles>({
   },
   bottomSection: {
     gap: 16,
-  },
-  primaryButton: {
-    backgroundColor: '#E50914',
-    paddingVertical: hp(16),
-    borderRadius: hp(20),
-    alignItems: 'center',
-  },
-  primaryButtonText: {
-    fontSize: 16,
-    fontWeight: '600',
-  },
-  secondaryButton: {
-    backgroundColor: 'rgba(255, 255, 255, 0.1)',
-    paddingVertical: hp(16),
-    borderRadius: hp(20),
-    alignItems: 'center',
-    borderWidth: 1,
-    borderColor: 'rgba(255, 255, 255, 0.2)',
-  },
-  secondaryButtonText: {
-    fontSize: 16,
-    fontWeight: '600',
   },
 });
 export default styles;
