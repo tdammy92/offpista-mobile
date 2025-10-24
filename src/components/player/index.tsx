@@ -3,7 +3,13 @@ import usePlayerHeight from '@src/hooks/usePlayerHeight';
 import { hp, SCREEN_HEIGHT } from '@src/themes/dimensions';
 import { Short } from '@src/types/post-type';
 import { Search } from 'lucide-react-native';
-import React, { forwardRef, useCallback, useImperativeHandle } from 'react';
+import React, {
+  forwardRef,
+  useCallback,
+  useEffect,
+  useImperativeHandle,
+  useRef,
+} from 'react';
 import { TouchableOpacity, View } from 'react-native';
 import { VideoRef } from 'react-native-video';
 import PlayerDetails from './PlaerDetails';
@@ -14,13 +20,16 @@ import { useFocusEffect } from '@react-navigation/native';
 
 interface PlayerComponents {
   short: Short;
+  shouldSeek?: boolean;
+  seekTo?: number;
 }
 
 const Player = forwardRef<PlayerRefHandler, PlayerComponents>(
-  ({ short }, parentRef) => {
+  ({ short, shouldSeek, seekTo }, parentRef) => {
     const videoPlayerRef = React.useRef<VideoRef>(null);
     const { PlayerHeight } = usePlayerHeight();
     const colors = useColors();
+    const hasSeekedRef = useRef(false);
 
     useImperativeHandle(parentRef, () => ({
       play,
@@ -45,6 +54,29 @@ const Player = forwardRef<PlayerRefHandler, PlayerComponents>(
       }, []),
     );
 
+    // when seekTo changes for this item, attempt seek and optionally play
+    // useEffect(() => {
+    //   if (typeof seekTo === 'number' && videoPlayerRef.current) {
+    //     try {
+    //       // react-native-video exposes seek()
+    //       videoPlayerRef.current?.seek?.(seekTo);
+    //       hasSeekedRef.current = true;
+    //       if (autoPlay) {
+    //         videoPlayerRef.current.resume?.();
+    //       }
+    //       // notify parent that seek/play has been applied
+    //       onPlayed?.();
+    //     } catch (err) {
+    //       // ignore; can retry after small timeout if necessary
+    //       setTimeout(() => {
+    //         videoPlayerRef.current?.seek?.(seekTo);
+    //         if (autoPlay) playerRef.current?.resume?.();
+    //         onPlayed?.();
+    //       }, 120);
+    //     }
+    //   }
+    // }, [seekTo, shouldSeek]);
+
     return (
       <View
         style={{
@@ -56,6 +88,7 @@ const Player = forwardRef<PlayerRefHandler, PlayerComponents>(
           source={{
             uri: short.postUrl,
           }}
+          poster={{ source: { uri: short?.thumbnail }, resizeMode: 'cover' }}
           repeat={true}
           muted={false}
           resizeMode={'cover'}

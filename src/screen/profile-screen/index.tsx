@@ -1,12 +1,7 @@
-import {
-  Image,
-  Pressable,
-  ScrollView,
-  Text,
-  TouchableOpacity,
-  View,
-} from 'react-native';
-import React, { useState } from 'react';
+import useColors from '@src/hooks/useColors';
+import { useAppDispatch } from '@src/store';
+import { logOutUser } from '@src/store/auth-store';
+import { hp } from '@src/themes/dimensions';
 import {
   Bell,
   Camera,
@@ -14,23 +9,29 @@ import {
   LogOut,
   Settings,
 } from 'lucide-react-native';
+import React, { useState } from 'react';
+import { Image, ScrollView, Text, TouchableOpacity, View } from 'react-native';
 import styles from './styles';
-import useColors from '@src/hooks/useColors';
-import { hp } from '@src/themes/dimensions';
 
 const ProfileScreen = () => {
   const colors = useColors();
   const [loading, setLoading] = useState(false);
+  const dispatch = useAppDispatch();
 
-  const handleSignOut = async () => {};
+  const handleSignOut = async () => {
+    dispatch(logOutUser());
+  };
+
   return (
     <ScrollView style={styles.container} showsVerticalScrollIndicator={false}>
       <View style={styles.header}>
-        <Text style={styles.headerTitle}>Profile</Text>
+        <Text style={[styles.headerTitle, { color: colors.light }]}>
+          Profile
+        </Text>
       </View>
 
       <View style={styles.profileSection}>
-        <View style={styles.avatarLarge}>
+        <View style={[styles.avatarLarge, { borderColor: colors.primary100 }]}>
           <Image
             source={{ uri: 'https://i.pravatar.cc/150?img=4' }}
             style={{ height: '100%', width: '100%', borderRadius: 50 }}
@@ -44,7 +45,9 @@ const ProfileScreen = () => {
             />
           </View>
         </View>
-        <Text style={styles.profileName}>Brandon Mark</Text>
+        <Text style={[styles.profileName, { color: colors.light }]}>
+          Brandon Mark
+        </Text>
         <Text style={styles.profileEmail}>brandon.mark@offpista.com</Text>
       </View>
 
@@ -79,8 +82,8 @@ const ProfileScreen = () => {
           disabled={loading}
         >
           <View style={styles.menuItemLeft}>
-            <LogOut size={20} color="#E50914" />
-            <Text style={[styles.menuItemText, styles.signOutText]}>
+            <LogOut size={20} color={colors.primary100} />
+            <Text style={[styles.menuItemText, { color: colors.primary100 }]}>
               {loading ? 'Signing Out...' : 'Sign Out'}
             </Text>
           </View>

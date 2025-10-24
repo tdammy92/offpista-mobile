@@ -6,10 +6,9 @@ module.exports = {
       {
         alias: {
           '@src': './src',
-          'moti/skeleton': 'moti/skeleton/react-native-linear-gradient',
         },
       },
     ],
-    'react-native-worklets/plugin',
+    'react-native-reanimated/plugin',
   ],
 };

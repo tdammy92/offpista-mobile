@@ -15,7 +15,6 @@ interface Styles {
   menuItemText: TextStyle;
   menuItemArrow: TextStyle;
   signOutItem: ViewStyle;
-  signOutText: TextStyle;
 }
 
 const styles = StyleSheet.create<Styles>({
@@ -31,7 +30,6 @@ const styles = StyleSheet.create<Styles>({
   headerTitle: {
     fontSize: 24,
     fontWeight: '700',
-    color: '#fff',
   },
   profileSection: {
     alignItems: 'center',
@@ -45,13 +43,11 @@ const styles = StyleSheet.create<Styles>({
     borderRadius: 50,
     backgroundColor: 'rgba(229, 9, 20, 0.2)',
     borderWidth: 3,
-    borderColor: '#E50914',
     marginBottom: 16,
   },
   profileName: {
     fontSize: 20,
     fontWeight: '700',
-    color: '#fff',
     marginBottom: 4,
   },
   profileEmail: {
@@ -87,9 +83,6 @@ const styles = StyleSheet.create<Styles>({
   signOutItem: {
     borderBottomWidth: 0,
     marginTop: 16,
-  },
-  signOutText: {
-    color: '#E50914',
   },
 });
 export default styles;

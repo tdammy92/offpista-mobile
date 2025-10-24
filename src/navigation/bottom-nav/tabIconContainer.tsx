@@ -7,7 +7,7 @@ import Animated, {
   withSpring,
 } from 'react-native-reanimated';
 import useColors from '../../hooks/useColors';
-import { fontSize, hp, wp } from '@src/themes/dimensions';
+import { fontSize, fs, hp, wp } from '@src/themes/dimensions';
 
 type TabItemContainerProps = { children: ReactNode } & {
   focused: boolean;
@@ -66,9 +66,9 @@ const TabItemContainer = ({
       <Text
         style={[
           {
-            fontSize: fontSize.sm,
+            fontSize: fs(12),
             paddingTop: hp(2),
-            color: focused ? colors.primary100 : colors.light,
+            color: color,
           },
           // animatedTextStyle,
         ]}

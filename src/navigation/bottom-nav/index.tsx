@@ -9,12 +9,13 @@ import useColors from '../../hooks/useColors';
 
 import { useAppSelector } from '../../store';
 import { BottomMenuParams } from '@src/types/nav-type';
-import { hp, isAndroid, spacing } from '@src/themes/dimensions';
+import { fs, hp, isAndroid, spacing } from '@src/themes/dimensions';
 import HomeScreen from '@src/screen/home-screen';
 import ShortScreen from '@src/screen/short-screen';
 import RewardScreen from '@src/screen/reward-screen';
 import ProfileScreen from '@src/screen/profile-screen';
 import { GalleryHorizontalEnd, Gift, House, User } from 'lucide-react-native';
+import { HomeIcon, ShortsIcon } from '@src/assets';
 
 const { Navigator, Screen } = createBottomTabNavigator<BottomMenuParams>();
 
@@ -32,6 +33,12 @@ const MainTab = () => {
             styles.container,
             { backgroundColor: colors.background100 },
           ],
+          tabBarActiveTintColor: colors.primary100,
+          tabBarInactiveTintColor: colors.inactiveTintColor,
+          tabBarLabelStyle: {
+            fontSize: fs(12),
+          },
+
           // tabBarItemStyle: styles.tabItem,
           tabBarHideOnKeyboard: true,
         }}
@@ -49,7 +56,7 @@ const MainTab = () => {
                   size={size}
                   name="Home"
                 >
-                  <House color={focused ? colors.primary100 : colors.light} />
+                  <HomeIcon height={25} width={25} fillColor={color} />
                 </TabItemContainer>
               );
             },
@@ -69,9 +76,7 @@ const MainTab = () => {
                   size={size}
                   name="Shorts"
                 >
-                  <GalleryHorizontalEnd
-                    color={focused ? colors.primary100 : colors.light}
-                  />
+                  <ShortsIcon height={24} width={24} strokeColor={color} />
                 </TabItemContainer>
               );
             },
@@ -90,7 +95,7 @@ const MainTab = () => {
                   size={size}
                   name="Reward"
                 >
-                  <Gift color={focused ? colors.primary100 : colors.light} />
+                  <Gift color={color} />
                 </TabItemContainer>
               );
             },
@@ -109,7 +114,7 @@ const MainTab = () => {
                   size={size}
                   name="Profile"
                 >
-                  <User color={focused ? colors.primary100 : colors.light} />
+                  <User color={color} />
                 </TabItemContainer>
               );
             },

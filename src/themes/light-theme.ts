@@ -24,6 +24,7 @@ export const lightTheme = {
     background150: '#F5F5F5',
     background200: '#EDEDED',
     background210: '#FFFFFF',
+    inactiveTintColor: '#999999',
   },
 };
 

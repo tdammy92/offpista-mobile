@@ -10,4 +10,18 @@ export interface Short {
   share: number;
   like: number;
   description: string;
+  thumbnail: string;
+}
+
+export interface Movie {
+  id: string;
+  title: string;
+  description: string;
+  backdrop: string;
+  thumbnail: string;
+  trailer: string;
+}
+export interface Category {
+  id: string;
+  name: string;
 }
