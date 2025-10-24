@@ -16,8 +16,8 @@ import {
   persistStore,
 } from 'redux-persist';
 import { TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux';
-import { AuthSlice, AuthStateT } from './auth-store';
-import { themelice, ThemeStateT } from './theme-store';
+import AuthSlice, { AuthStateT } from './auth-store';
+import themelice, { ThemeStateT } from './theme-store';
 
 export interface RootStat {
   auth: AuthStateT;

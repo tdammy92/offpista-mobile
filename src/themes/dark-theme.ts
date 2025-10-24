@@ -24,5 +24,6 @@ export const darkTheme = {
     background150: '#181818',
     background200: '#1E1E1E',
     background210: '#242424',
+    inactiveTintColor: '#999999',
   },
 };

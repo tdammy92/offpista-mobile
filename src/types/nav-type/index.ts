@@ -11,7 +11,10 @@ export type rootStackParams = {
 //bottom screen type
 export type BottomMenuParams = {
   [SCREEN_NAME.home]: undefined;
-  [SCREEN_NAME.shorts]: undefined;
+  [SCREEN_NAME.shorts]: {
+    postId?: string;
+    seekTo?: number;
+  };
   [SCREEN_NAME.reward]: undefined;
   [SCREEN_NAME.profile]: undefined;
 };
