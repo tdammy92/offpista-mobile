@@ -1,4 +1,5 @@
 import { LoveIcon, SaveIcon, ShareIcon } from '@src/assets';
+import { formatNumber } from '@src/helper/utils';
 import useColors from '@src/hooks/useColors';
 import { fs, hp, SCREEN_HEIGHT } from '@src/themes/dimensions';
 import { Short } from '@src/types/post-type';
@@ -12,19 +13,19 @@ const PlayerAction = ({ short }: { short: Short }) => {
       <TouchableOpacity style={styles.actionButton}>
         <LoveIcon height={36} width={36} />
         <Text style={[styles.actionText, { color: colors.light }]}>
-          {short?.like}
+          {formatNumber(short?.like ?? 0)}
         </Text>
       </TouchableOpacity>
       <TouchableOpacity style={styles.actionButton}>
         <SaveIcon height={36} width={36} />
         <Text style={[styles.actionText, { color: colors.light }]}>
-          {short?.favorite}
+          {formatNumber(short?.favorite ?? 0)}
         </Text>
       </TouchableOpacity>
       <TouchableOpacity style={styles.actionButton}>
         <ShareIcon height={36} width={36} />
         <Text style={[styles.actionText, { color: colors.light }]}>
-          {short?.share}
+          {formatNumber(short?.share ?? 0)}
         </Text>
       </TouchableOpacity>
     </View>
@@ -38,7 +39,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 16,
     gap: 28,
     position: 'absolute',
-    right: 0,
+    right: -5,
     bottom: SCREEN_HEIGHT * 0.024,
     alignItems: 'center',
   },
