@@ -6,7 +6,6 @@ import React, { useMemo } from 'react';
 import { ScrollView } from 'react-native';
 import styles from './styles';
 import { shufflePost } from '@src/helper/utils';
-import { logger } from '@src/helper/logger';
 import Categories from '@src/components/common/Categories';
 
 const HomeScreen = () => {
