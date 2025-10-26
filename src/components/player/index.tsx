@@ -1,6 +1,6 @@
 import useColors from '@src/hooks/useColors';
 import usePlayerHeight from '@src/hooks/usePlayerHeight';
-import { hp, SCREEN_HEIGHT } from '@src/themes/dimensions';
+import { hp, isAndroid, SCREEN_HEIGHT } from '@src/themes/dimensions';
 import { Short } from '@src/types/post-type';
 import { Search } from 'lucide-react-native';
 import React, {
@@ -80,7 +80,7 @@ const Player = forwardRef<PlayerRefHandler, PlayerComponents>(
     return (
       <View
         style={{
-          height: PlayerHeight,
+          height: isAndroid ? PlayerHeight - hp(30) : PlayerHeight,
         }}
       >
         <VideoPlayer
