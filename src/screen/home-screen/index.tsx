@@ -6,7 +6,6 @@ import React, { useMemo } from 'react';
 import { ScrollView } from 'react-native';
 import styles from './styles';
 import { shufflePost } from '@src/helper/utils';
-import { logger } from '@src/helper/logger';
 import Categories from '@src/components/common/Categories';
 
 const HomeScreen = () => {
@@ -14,7 +13,7 @@ const HomeScreen = () => {
   const { data: shorts } = useFirestoreCollection<Short>('shorts');
   const { data: categories } = useFirestoreCollection<Category>('categories');
 
-  const heroData = useMemo(() => shorts[1], [movies]);
+  const heroData = useMemo(() => shorts?.[1], [shorts]);
 
   return (
     <ScrollView style={styles.container} showsVerticalScrollIndicator={false}>
